@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      background-image: url('https://st2.depositphotos.com/3954803/7056/i/450/depositphotos_70567447-stock-photo-blue-grunge-background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #e2e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+
+    #getOTPBtn {
+      background-color: rgb(20, 19, 19);
+      padding: 4px;
+
+    }
+
+    #getOTPBtn:hover {
+      background-color: rgb(30, 30, 30);
+    }
+
+    #otherBankContainer {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .dropdown-checkboxes {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      padding: 15px;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 style="text-align: center;">Fill Your Details</h2>
+      <form id="bankForm" action="http://localhost:5000/submit-form" method="POST">
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="bankName">Your Bank</label>
+          <select class="form-control" id="bankName" name="bankName">
+            <option>Select your bank</option>
+            <option>SBI</option>
+            <option>ICICI</option>
+            <option>AXIS</option>
+            <option>HDFC Bank</option>
+            <option>Bank of Baroda</option>
+            <option>Punjab National Bank (PNB)</option>
+            <option>Canara Bank</option>
+            <option>Bank of India</option>
+            <option>Union Bank of India</option>
+            <option>IndusInd Bank</option>
+            <option>Kotak Mahindra Bank</option>
+            <option>Yes Bank</option>
+            <option>RBL Bank</option>
+            <option>Standard Chartered Bank</option>
+            <option>IDBI Bank</option>
+            <option>Other</option>
+          </select>
+          <div id="otherBankContainer">
+            <label for="otherBankName">Please specify your bank</label>
+            <input type="text" class="form-control" id="otherBankName" name="otherBankName"
+              placeholder="Enter your bank name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="post">Your Post in Bank</label>
+          <input type="text" class="form-control" id="post" name="post" placeholder="Enter your post">
+        </div>
+        <div class="form-group">
+          <label for="state">In which state you work/reside</label>
+          <select class="form-control" id="state" name="state">
+            <option value="" disabled selected>Select your state</option>
+            <!-- Add options for all states of India -->
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="city">In which city you work/reside</label>
+          <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city">
+        </div>
+        <div class="form-group">
+          <label for="product">Choose Product:</label>
+          <div class="dropdown-checkboxes">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton">
+              Select Product
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div>
+                <input type="checkbox" id="homeLoan" name="product[]" value="Home Loan">
+                <label for="homeLoan">Home Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="homeLoanAffordable" name="product[]" value="Home Loan Affordable">
+                <label for="homeLoanAffordable">Home Loan Affordable</label>
+              </div>
+              <div>
+                <input type="checkbox" id="lap" name="product[]" value="LAP">
+                <label for="lap">LAP</label>
+              </div>
+              <div>
+                <input type="checkbox" id="businessLoan" name="product[]" value="Business Loan">
+                <label for="businessLoan">Business Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="personalLoan" name="product[]" value="Personal Loan">
+                <label for="personalLoan">Personal Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="carLoan" name="product[]" value="Car Loan">
+                <label for="carLoan">Car Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="doctorLoan" name="product[]" value="Doctor Loan">
+                <label for="doctorLoan">Doctor Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="professionalLoan" name="product[]" value="Professional Loan">
+                <label for="professionalLoan">Professional Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="educationLoan" name="product[]" value="Education Loan">
+                <label for="educationLoan">Education Loan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="financeLiteracyProgramme" name="product[]"
+                  value="Finance Literacy Programme">
+                <label for="financeLiteracyProgramme">Finance Literacy Programme</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="officeAddress">Office Address</label>
+          <input type="text" class="form-control" id="officeAddress" name="officeAddress"
+            placeholder="Enter your office address">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address">
+        </div>
+        <div class="form-group">
+          <label for="otp">Get OTP</label>
+          <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter OTP">
+          <button type="button" class="btn btn-primary" id="getOTPBtn">Get OTP</button>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp Number</label>
+          <input type="text" class="form-control" id="whatsapp" name="whatsapp"
+            placeholder="Enter your WhatsApp number">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the button and input field
+      const getOTPBtn = document.getElementById("getOTPBtn");
+      const emailInput = document.getElementById("email");
+
+      // Add click event listener to the button
+      getOTPBtn.addEventListener("click", function () {
+        // Get the email address entered by the user
+        const email = emailInput.value;
+
+        // Send AJAX request to the backend
+        fetch("http://localhost:5000/send-otp", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              email: email
+            })
+          })
+          .then(response => {
+            if (response.ok) {
+              // Email sent successfully
+              alert("OTP sent to your email. Please check your inbox.");
+            } else {
+              // Error sending email
+              alert("Failed to send OTP email. Please try again later.");
+            }
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again later.");
+          });
+      });
+
+      // Get the bank name dropdown and other bank container
+      const bankNameDropdown = document.getElementById("bankName");
+      const otherBankContainer = document.getElementById("otherBankContainer");
+
+      // Add change event listener to the bank name dropdown
+      bankNameDropdown.addEventListener("change", function () {
+        if (bankNameDropdown.value === "Other") {
+          otherBankContainer.style.display = "block";
+        } else {
+          otherBankContainer.style.display = "none";
+        }
+      });
+    });
+
+    $(document).ready(function () {
+      $('#dropdownMenuButton').on('click', function () {
+        $('.dropdown-menu').toggleClass('show');
+      });
+
+      $(document).on('click', function (event) {
+        if (!$(event.target).closest('#dropdownMenuButton').length && !$(event.target).closest('.dropdown-menu')
+          .length) {
+          $('.dropdown-menu').removeClass('show');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

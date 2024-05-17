@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Registration</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2021/06/19/20/39/laptop-6349424_1280.jpg');
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <div class="form-container">
+      <h2 class="text-center">DSA Registration</h2>
+      <form>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Enter your Full Name">
+        </div>
+        <div class="form-group">
+          <label for="mail">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+          <label for="state">In which state you work/reside</label>
+          <select class="form-control" id="state" name="state">
+            <option value="" disabled selected>Select your state</option>
+            <!-- Add options for all states of India -->
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">In which City you work/reside?</label>
+          <input type="text" class="form-control" id="city" placeholder="Enter your City Name">
+        </div>
+
+        <div class="form-group">
+          <label>Are You</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="workStatus" id="alreadyWorking" value="Already Working">
+            <label class="form-check-label" for="alreadyWorking">Already Working</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="workStatus" id="wantToStart"
+              value="Want to start work now">
+            <label class="form-check-label" for="wantToStart">Want to start work now</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="officeArea">If you are already working then please share your office area in Square Feet?</label>
+          <input type="text" class="form-control" id="officeArea" placeholder="Enter Office Area in Square Feet">
+        </div>
+
+        <div class="form-group">
+          <label>How do you process Customer Loans?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="processMyself" value="Process Files by myself">
+            <label class="form-check-label" for="processMyself">Process Files by myself</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="giveOthers" value="Give others files for processing">
+            <label class="form-check-label" for="giveOthers">Give others files for processing</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="teamMembers">Do you have Team? If yes, then how many members are working under you?</label>
+          <input type="text" class="form-control" id="teamMembers" placeholder="Your answer">
+        </div>
+
+        <div class="form-group">
+          <label>Do you Disburse</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="disburseType" id="secureAndUnsecure"
+              value="Secure and Unsecure Loans Both">
+            <label class="form-check-label" for="secureAndUnsecure">Secure and Unsecure Loans Both</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="disburseType" id="onlySecure" value="Only Secure">
+            <label class="form-check-label" for="onlySecure">Only Secure</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="disburseType" id="onlyUnsecure" value="Only Unsecure">
+            <label class="form-check-label" for="onlyUnsecure">Only Unsecure</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="monthlyDisbursement">What is your total amount of Monthly Disbursement?</label>
+          <input type="text" class="form-control" id="monthlyDisbursement" placeholder="Monthly Disbursement">
+        </div>
+
+        <div class="form-group">
+          <label for="housingLoanDisbursement">Enter total amount of Monthly Disbursement of Housing loan (if
+            any)</label>
+          <input type="text" class="form-control" id="housingLoanDisbursement"
+            placeholder="Disbursement of Housing loan">
+        </div>
+
+        <div class="form-group">
+          <label for="loanAgainstPropertyDisbursement">Enter total amount of Monthly Disbursement of Loan against
+            Property (if any)</label>
+          <input type="text" class="form-control" id="loanAgainstPropertyDisbursement"
+            placeholder="Disbursement of Loan against Property">
+        </div>
+
+        <div class="form-group">
+          <label for="personalLoanDisbursement">Enter total amount of Monthly Disbursement of Personal Loan (if
+            any)</label>
+          <input type="text" class="form-control" id="personalLoanDisbursement"
+            placeholder="Disbursement of Personal Loan">
+        </div>
+
+        <div class="form-group">
+          <label for="businessLoanDisbursement">Enter total amount of Monthly Disbursement of Business Loan (if
+            any)</label>
+          <input type="text" class="form-control" id="businessLoanDisbursement"
+            placeholder="Disbursement of Business Loan">
+        </div>
+
+        <div class="form-group">
+          <label for="whatsappNumber">Whatsapp Number</label>
+          <input type="text" class="form-control" id="whatsappNumber" placeholder="Enter Whatsapp Mobile Number">
+        </div>
+        <!-- 
+        <div class="form-group">
+          <label for="verifyNumber">Verify Number</label>
+          <input type="text" class="form-control" id="verifyNumber" placeholder="Verify Number">
+        </div> -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>
